@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harry potter website</title>
+  <link rel="stylesheet" href="hh.css">
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #16c4b8;
+    }
+
+    header, footer {
+      background-color: #09689f;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content-section {
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .movies-section,
+    .tv-shows-section,
+    .web-series-section {
+      min-height: 100px; /* Adjust this minimum height */
+      background-color: #f2f2f2; /* Set individual section background colors */
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .content-section h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .card {
+      width: 250px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Add more specific styles as needed */
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Navbar or header content -->
+    <!-- Logo, Navigation links, Search bar, etc. -->
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- Hero section with featured content -->
+      <!-- Carousel or featured movie/show -->
+    </section>
+
+    <section class="content">
+      <!-- Movies Section -->
+      <section class="content-section movies-section">
+        <h2>Movies</h2>
+        <div class="movies-content"></div>
+      </section>
+
+      <!-- TV Shows Section -->
+      <section class="content-section tv-shows-section">
+        <h2>TV Shows</h2>
+        <div class="tv-shows-content"></div>
+      </section>
+
+      <!-- Web Series Section -->
+      <section class="content-section web-series-section">
+        <h2>Web Series</h2>
+        <div class="web-series-content"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <!-- Footer content -->
+    <!-- Links, social media icons, etc. -->
+  </footer>
+
+  <!-- Modal for movie/show details -->
+  <div class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="" alt="Movie Title" class="modal-image">
+      <h2 class="modal-title">Movie Title</h2>
+      <p class="modal-description">Description of the movie/show</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Simulated data (replace with API fetch)
+    // ... (Your data remains unchanged)
+
+    // Function to populate content for movies
+    const modal = document.querySelector('.modal');
+    const cards = document.querySelectorAll('.card');
+    const closeButton = document.querySelector('.close');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modal.style.display = 'block';
+        const title = card.querySelector('h3').innerText;
+        const description = card.querySelector('p').innerText;
+        const imageSrc = card.querySelector('img').src;
+
+        const modalTitle = document.querySelector('.modal-title');
+        const modalDescription = document.querySelector('.modal-description');
+        const modalImage = document.querySelector('.modal-image');
+
+        modalTitle.innerText = title;
+        modalDescription.innerText = description;
+        modalImage.src = imageSrc;
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Simulated data fetch
+    const contentSection = document.querySelector('.content');
+
+    // Simulated data (replace with API fetch)
+    // ... (Your data remains unchanged)
+    
+    // Rest of your JavaScript code remains the same...
+    const movies = [
+      { title: 'Movie 1', image: 'https://images.hdqwalls.com/wallpapers/thumb/angry-birds-save-the-egg-4k-3w.jpg', description: 'Angry birds' },
+      { title: 'Movie 2', image: 'https://images.hdqwalls.com/wallpapers/thumb/how-to-train-your-dragon-and-wind-waker-crossover-4k-si.jpg', description: 'Train your dragon' },
+      { title: 'Movie 3', image: 'https://images.hdqwalls.com/wallpapers/thumb/toy-story-4-new-poster-h5.jpg', description: 'Toy story' },
+      { title: 'Movie 4', image: 'https://images.hdqwalls.com/wallpapers/bthumb/chicken-run-dawn-of-the-nugget-2023-mr.jpg', description: 'Chicken Run' },
+      { title: 'Movie 5', image: 'https://images.hdqwalls.com/wallpapers/thumb/inside-out-2-movie-2024-w4.jpg', description: 'inside out 2' },
+      { title: 'Movie 6', image: 'https://images.hdqwalls.com/wallpapers/thumb/buzz-light-year-hammer-of-heroism-dq.jpg', description: 'buzz light year' },
+      { title: 'Movie 7', image: 'https://images.hdqwalls.com/wallpapers/thumb/tom-and-jerry-2021-1y.jpg', description: 'tom and jerry' },
+      { title: 'Movie 8', image: 'https://images.hdqwalls.com/wallpapers/thumb/the-croods-a-new-age-12k-d0.jpg', description: 'the-croods-a-new-age' },
+      { title: 'Movie 9', image: 'https://images.hdqwalls.com/wallpapers/thumb/scooby-doo-and-batman-the-brave-and-the-bold-g6.jpg', description: 'scooby-doo-and-batman' },
+      { title: 'Movie 10', image: 'https://images.hdqwalls.com/wallpapers/thumb/rango-movie-4k-gl.jpg', description: 'rango' },
+      { title: 'Movie 11', image: 'https://images.hdqwalls.com/wallpapers/thumb/disney-raya-and-the-last-dragon-2021-me.jpg', description: 'raya-the-last-dragon'},
+      { title: 'Movie 12', image: 'https://images.hdqwalls.com/wallpapers/thumb/the-spongebob-movie-sponge-on-the-run-2020-4k-h0.jpg', description: 'spongebob' },
+      { title: 'Movie 13', image: 'https://images.hdqwalls.com/wallpapers/thumb/the-incredibles-2-team-up-x2.jpg', description: 'the-incredibles-2' },
+      { title: 'Movie 14', image: 'https://images.hdqwalls.com/wallpapers/thumb/wreck-it-ralph-2-movie-3j.jpg', description: 'wreck-it-ralph' },
+      { title: 'Movie 15', image: 'https://images.hdqwalls.com/wallpapers/thumb/trolls-movie-4k-h8.jpg', description: 'trolls-movie' },
+
+
+      // Add more movie/show objects
+    ];
+    
+     // Web series data
+     const webSeries = [
+      { title: 'Web Series 1', image: 'https://wallpapercave.com/dwp1x/wp6902886.jpg', description: 'stranger things' },
+      { title: 'Web Series 2', image: 'https://wallpapercave.com/dwp1x/wp6902843.jpg', description: 'the witcher' },
+      { title: 'Web Series 1', image: 'https://wallpapercave.com/dwp1x/wp5180050.jpg', description: 'you' },
+      { title: 'Web Series 2', image: 'https://wallpapercave.com/dwp1x/wp5193268.jpg', description: 'school bus' },
+      { title: 'Web Series 1', image: 'https://wallpapercave.com/dwp1x/wp6902918.jpg', description: 'Dark' },
+    
+      // Add more web series objects
+    ];
+    // TV shows data
+    const tvShows = [
+      { title: 'TV Show 1', image: 'https://images6.alphacoders.com/133/thumbbig-1331121.webp', description: 'i am groot' },
+      { title: 'TV Show 2', image: 'https://images.alphacoders.com/133/thumbbig-1330376.webp', description: 'rick and morty' },
+      { title: 'TV Show 1', image: 'https://images7.alphacoders.com/131/thumbbig-1319607.webp', description: 'the mandalorian' },
+      { title: 'TV Show 2', image: 'https://images3.alphacoders.com/133/thumbbig-1330375.webp', description: 'rick and morty 2' },
+      { title: 'TV Show 1', image: 'https://images7.alphacoders.com/134/thumbbig-1344314.webp', description: 'star trek:prodigy' },
+      { title: 'TV Show 2', image: 'https://images4.alphacoders.com/133/thumbbig-1337222.webp', description: 'we bare bears' },
+      { title: 'TV Show 1', image: 'https://images6.alphacoders.com/133/thumbbig-1338130.webp', description: 'wednesday' },
+
+      // Add more TV show objects
+    ];
+        // Function to populate content
+        const populateContent = (contentSection, data) => {
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        `;
+        contentSection.appendChild(card);
+      });
+    };
+
+    // Populate movies, web series, and TV shows
+    populateContent(contentSection, movies);
+    populateContent(contentSection, webSeries);
+    populateContent(contentSection, tvShows);
+
+  </script>
+</body>
+</html>
